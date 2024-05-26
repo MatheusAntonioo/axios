@@ -6,7 +6,15 @@ const getData = async() => {
 
   try {
 
-    const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users",
+      // definindo headers
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     console.log(response)
     return response.data;
