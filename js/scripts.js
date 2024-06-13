@@ -6,8 +6,9 @@ const getData = async() => {
 
   try {
 
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users",
+    // const response = await axios.get(   /** global instance */
+    const response = await postFetch.get(   /** custom instance */
+    "/users",
       // definindo headers
       {
         headers: {
@@ -64,7 +65,8 @@ const bodyInput = document.querySelector("#body")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  axios.post("https://jsonplaceholder.typicode.com/posts", {
+  // axios.post("https://jsonplaceholder.typicode.com/posts", {    /** global instance */
+  postFetch.post("/posts", {    /** custom instance */
     title: titleInput.value,
     body: bodyInput.value,
     userId: 1,
